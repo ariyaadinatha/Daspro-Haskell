@@ -1,0 +1,6 @@
+prevNsecond :: Int -> Int -> Int -> Int -> (Int,Int,Int)
+prevNsecond j m d n = if n==0 then (j,m,d)
+                      else if d==0 && m/=0 then (j,m-1,59)
+                      else if m==0 && d==0 && j/=0 then (j-1,59,59)
+                      else if j==0 && m==0 && d==0 then (23,59,59)
+                      else prevNsecond j m (d-1) (n-1)
